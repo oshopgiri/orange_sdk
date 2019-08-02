@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.orange.com/oauth/v2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials
+    headers:
+      Authorization:
+      - Basic UkhoOGUyR3l0bEV5eDQ4WDVVZzYxRk5mNkpIVkF5aFU6QXZNT1BnSjliWVphUkl0NQ==
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 02 Aug 2019 08:41:00 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '163'
+      Connection:
+      - keep-alive
+      X-Oapi-Request-Id:
+      - opapccballrt01-31760-586501-1
+    body:
+      encoding: UTF-8
+      string: "\n          {\n            \"token_type\": \"Bearer\",\n          \t\"access_token\":
+        \"em1bHropmR8gxyDF1NwJ910cU3uP\",\n          \t\"expires_in\": \"7776000\"\n
+        \         }\n        "
+    http_version: 
+  recorded_at: Fri, 02 Aug 2019 08:41:00 GMT
+recorded_with: VCR 5.0.0

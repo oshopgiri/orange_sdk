@@ -1,0 +1,83 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.orange.com/oauth/v2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials
+    headers:
+      Authorization:
+      - Basic UkhoOGUyR3l0bEV5eDQ4WDVVZzYxRk5mNkpIVkF5aFU6QXZNT1BnSjliWVphUkl0NQ==
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 02 Aug 2019 08:52:54 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '163'
+      Connection:
+      - keep-alive
+      X-Oapi-Request-Id:
+      - opapccballrt02-31793-587098-1
+    body:
+      encoding: UTF-8
+      string: "\n          {\n            \"token_type\": \"Bearer\",\n          \t\"access_token\":
+        \"edvO6iN33DsUcuUdtGQE1YS5mmeI\",\n          \t\"expires_in\": \"7776000\"\n
+        \         }\n        "
+    http_version: 
+  recorded_at: Fri, 02 Aug 2019 08:52:54 GMT
+- request:
+    method: post
+    uri: https://api.orange.com/smsmessaging/v1/outbound/tel:+22737373737/requests
+    body:
+      encoding: UTF-8
+      string: '{"outboundSMSMessageRequest":{"address":"tel:+22373737373","outboundSMSTextMessage":{"message":"Test
+        SMS"},"senderAddress":"tel:+22737373737","senderName":"+22737373737"}}'
+    headers:
+      Authorization:
+      - Bearer edvO6iN33DsUcuUdtGQE1YS5mmeI
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: ''
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 02 Aug 2019 08:52:55 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '300'
+      Connection:
+      - keep-alive
+      Location:
+      - https://api.orange.com/smsmessaging/v1/outbound/tel:+22737373737/requests/d69e73b8-0cfd-4323-bec0-29b0515abcaa
+      Access-Control-Allow-Origin:
+      - ''
+      Access-Control-Expose-Headers:
+      - X-Result-Count, X-Total-Count
+      X-Oapi-Request-Id:
+      - opapccballrt11-29528-531951-1
+    body:
+      encoding: UTF-8
+      string: '{"outboundSMSMessageRequest":{"address":["tel:+22373737373"],"senderAddress":"tel:+22737373737","senderName":"+22737373737","outboundSMSTextMessage":{"message":"Test
+        SMS"},"resourceURL":"https://api.orange.com/smsmessaging/v1/outbound/tel:+22737373737/requests/d69e73b8-0cfd-4323-bec0-29b0515abcaa"}}'
+    http_version: 
+  recorded_at: Fri, 02 Aug 2019 08:52:55 GMT
+recorded_with: VCR 5.0.0
