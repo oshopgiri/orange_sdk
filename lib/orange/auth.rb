@@ -5,18 +5,22 @@ class Orange::Auth
 
 	base_uri "#{Orange::BASE_URI}/oauth/v2".freeze
 
-	def self.token(path: '/token')
-		headers = {
-			Authorization: "Basic #{ENV['ORANGE_AUTHORIZATION_TOKEN']}",
-			'Content-Type': 'application/x-www-form-urlencoded',
-			Accept: 'application/json'
-		}
+	class << self
+		def token
+			self.new.token
+		end
+	end
 
+	def initialize(path: '/token')
+		@path = path
+	end
+
+	def token
 		body = {
 			grant_type: 'client_credentials'
 		}
 
-		response = self.post(path, headers: headers, body: body)
+		response = self.class.post(@path, headers: headers, body: body)
 
 		if response.success?
 			response['access_token']
@@ -24,4 +28,14 @@ class Orange::Auth
 			response.response.error!
 		end
 	end
+
+	private
+
+		def headers
+			{
+				Authorization: "Basic #{ENV['ORANGE_AUTHORIZATION_TOKEN']}",
+				'Content-Type': 'application/x-www-form-urlencoded',
+				Accept: 'application/json'
+			}
+		end
 end
