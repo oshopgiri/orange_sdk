@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/oshopgiri/orange_sdk.svg?branch=master)](https://travis-ci.org/oshopgiri/orange_sdk)
+
 # Orange SDK
 
 Consume APIs for [Orange Products](https://developer.orange.com/products/) with ease.
