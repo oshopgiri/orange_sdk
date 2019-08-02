@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/oshopgiri/orange_sdk.svg?branch=master)](https://travis-ci.org/oshopgiri/orange_sdk)
-[![CodeFactor](https://www.codefactor.io/repository/github/oshopgiri/e_commerce/badge)](https://www.codefactor.io/repository/github/oshopgiri/e_commerce)
+[![CodeFactor](https://www.codefactor.io/repository/github/oshopgiri/orange_sdk/badge)](https://www.codefactor.io/repository/github/oshopgiri/orange_sdk)
 
 # Orange SDK
 
