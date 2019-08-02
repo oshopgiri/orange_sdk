@@ -35,7 +35,7 @@ http_interactions:
       string: "\n          {\n            \"token_type\": \"Bearer\",\n          \t\"access_token\":
         \"edvO6iN33DsUcuUdtGQE1YS5mmeI\",\n          \t\"expires_in\": \"7776000\"\n
         \         }\n        "
-    http_version: 
+    http_version:
   recorded_at: Fri, 02 Aug 2019 08:52:54 GMT
 - request:
     method: post
@@ -78,6 +78,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"outboundSMSMessageRequest":{"address":["tel:+22373737373"],"senderAddress":"tel:+22737373737","senderName":"+22737373737","outboundSMSTextMessage":{"message":"Test
         SMS"},"resourceURL":"https://api.orange.com/smsmessaging/v1/outbound/tel:+22737373737/requests/d69e73b8-0cfd-4323-bec0-29b0515abcaa"}}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 02 Aug 2019 08:52:55 GMT
 recorded_with: VCR 5.0.0
