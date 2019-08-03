@@ -31,7 +31,7 @@ Gem requires the following configurations in ENV:
 
 To request for an access token, use:
 ```ruby
-Orange::Auth.token
+Orange::Auth.get_token
 ```
 
 To send an SMS, use:
