@@ -1,41 +1,13 @@
-require 'httparty'
+module Orange
+	module Auth
+		autoload :Client, 'orange/auth/client'
+		autoload :Error, 'orange/auth/error'
+		autoload :Token, 'orange/auth/token'
 
-class Orange::Auth
-	include HTTParty
-
-	base_uri "#{Orange::BASE_URI}/oauth/v2".freeze
-
-	class << self
-		def token
-			self.new.token
+		def self.get_token
+			Orange::Auth::Client.new.get_token
 		end
 	end
-
-	def initialize(path: '/token')
-		@path = path
-	end
-
-	def token
-		body = {
-			grant_type: 'client_credentials'
-		}
-
-		response = self.class.post(@path, headers: headers, body: body)
-
-		if response.success?
-			response['access_token']
-		else
-			response.response.error!
-		end
-	end
-
-	private
-
-		def headers
-			{
-				Authorization: "Basic #{ENV['ORANGE_AUTHORIZATION_TOKEN']}",
-				'Content-Type': 'application/x-www-form-urlencoded',
-				Accept: 'application/json'
-			}
-		end
 end
+
+require 'orange/auth/errors'

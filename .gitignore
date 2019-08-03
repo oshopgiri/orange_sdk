@@ -10,6 +10,9 @@
 # rspec failure tracking
 .rspec_status
 
+# byebug debugging tracking
+.byebug_history
+
 # RubyMine stuff
 .idea
 

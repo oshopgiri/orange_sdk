@@ -1,6 +1,10 @@
+require 'httparty'
+
 module Orange
 	BASE_URI = 'https://api.orange.com'.freeze
 
-	require 'orange/auth'
-	require 'orange/sms'
+	autoload :Error, 'orange/error'
 end
+
+require 'orange/auth'
+require 'orange/sms'
