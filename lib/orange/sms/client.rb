@@ -26,7 +26,7 @@ class Orange::SMS::Client
 		if response.success?
 			response.success?
 		else
-			response.response.error!
+			raise Orange::SMS::Error.new(response: response)
 		end
 	end
 

@@ -9,5 +9,3 @@ module Orange
 		end
 	end
 end
-
-require 'orange/auth/errors'

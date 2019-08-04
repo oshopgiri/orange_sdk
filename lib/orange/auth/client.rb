@@ -15,7 +15,7 @@ class Orange::Auth::Client
 		if response.success?
 			Orange::Auth::Token.new(response: response)
 		else
-			Orange::Auth::Errors.handle(error: Orange::Auth::Error.new(response: response))
+			raise Orange::Auth::Error.new(response: response)
 		end
 	end
 

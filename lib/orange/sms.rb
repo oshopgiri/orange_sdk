@@ -1,6 +1,7 @@
 module Orange
 	module SMS
 		autoload :Client, 'orange/sms/client'
+		autoload :Error, 'orange/sms/error'
 
 		def self.dispatch(sender_name: nil, sender_contact:, recipient_contact:, message:)
 			Orange::SMS::Client.new(
