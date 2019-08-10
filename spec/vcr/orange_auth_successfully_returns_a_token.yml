@@ -35,6 +35,6 @@ http_interactions:
       string: "\n          {\n            \"token_type\": \"Bearer\",\n          \t\"access_token\":
         \"em1bHropmR8gxyDF1NwJ910cU3uP\",\n          \t\"expires_in\": \"7776000\"\n
         \         }\n        "
-    http_version: 
+    http_version:
   recorded_at: Sat, 10 Aug 2019 16:15:23 GMT
 recorded_with: VCR 5.0.0
