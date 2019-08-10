@@ -1,10 +1,7 @@
 require 'bundler/setup'
 require 'byebug'
-require 'dotenv'
 require 'orange'
 require 'vcr'
-
-Dotenv.load
 
 RSpec.configure do |config|
 	# Enable flags like --only-failures and --next-failure
@@ -25,4 +22,5 @@ RSpec.configure do |config|
 	end
 end
 
+require 'config/orange_sdk'
 require 'config/vcr'

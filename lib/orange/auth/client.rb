@@ -23,7 +23,7 @@ class Orange::Auth::Client
 
 		def headers
 			{
-				Authorization: "Basic #{ENV['ORANGE_AUTHORIZATION_TOKEN']}",
+				Authorization: "Basic #{Orange.configuration.authorization_token}",
 				'Content-Type': 'application/x-www-form-urlencoded',
 				Accept: 'application/json'
 			}
