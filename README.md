@@ -3,10 +3,9 @@
 
 # Orange SDK
 
-Consume APIs for [Orange Products](https://developer.orange.com/products/) with ease.
+Ruby SDK to consume APIs for [Orange Products](https://developer.orange.com/products/) with ease.
 
-Currently supports the following services:
-* [SMS Mali - Business v1.1](https://developer.orange.com/apis/sms-ml)
+For [supported services](https://github.com/oshopgiri/orange_sdk/wiki) and other details, please refer the [Wiki](https://github.com/oshopgiri/orange_sdk/wiki).
 
 ## Installation
 
@@ -24,25 +23,11 @@ Or install it yourself as:
 
     $ gem install orange_sdk
 
-## Usage
+And then run:
 
-Gem requires the following configurations in ENV:
-* **ORANGE_AUTHORIZATION_TOKEN**: Authorization token from Orange app's Details section
+    $ rails g orange_sdk:install
 
-To request for an access token, use:
-```ruby
-Orange::Auth.get_token
-```
-
-To send an SMS, use:
-```ruby
-Orange::SMS.dispatch(sender_contact: '+22737373737', recipient_contact: '+22737373737', message: 'Test SMS') 
-```
-`Orange::SMS.dispatch` accepts the following parameters:
-* `sender_name`: Name of the sender to be displayed. Defaults to `sender_contact`
-* `sender_contact`: Contact number of the sender. Should include the country code
-* `recipient_contact`: Contact number of the recipient. Should include the country code
-* `message`: Message to be sent
+This will add the configuration file in your app's initializers directory.
 
 ## Test
 
@@ -59,7 +44,6 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/oshopg
 3. Commit your changes (`git commit -m "My Awesome Code"`)
 4. Push to your branch (`git push remote my_awesome_branch`)
 5. Create a pull request to [oshopgiri/orange_sdk](https://github.com/oshopgiri/orange_sdk)
-
 
 ## License
 
