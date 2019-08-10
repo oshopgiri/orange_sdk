@@ -8,7 +8,7 @@ http_interactions:
       string: grant_type=client_credentials
     headers:
       Authorization:
-      - Basic UkhoOGUyR3l0bEV5eDQ4WDVVZzYxRk5mNkpIVkF5aFU6QXZNT1BnSjliWVphUkl0NQ==
+      - Basic d32831c60f88c759a377a080754e3841477fb5b2e22d709f609dd4baaa9203cb2f6d
       Content-Type:
       - application/x-www-form-urlencoded
       Accept:
