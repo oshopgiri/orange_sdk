@@ -3,8 +3,8 @@ class Orange::Auth::Client
 
 	base_uri "#{Orange::BASE_URI}/oauth/v2".freeze
 
-	def initialize(path: '/token')
-		@path = path
+	def initialize
+		@path = '/token'
 	end
 
 	def get_token

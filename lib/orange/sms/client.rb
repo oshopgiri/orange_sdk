@@ -3,8 +3,8 @@ class Orange::SMS::Client
 
 	base_uri "#{Orange::BASE_URI}/smsmessaging/v1/outbound".freeze
 
-	def initialize(path: '/requests', sender_name: nil, sender_contact:, recipient_contact:, message:)
-		@path = path
+	def initialize(sender_name: nil, sender_contact:, recipient_contact:, message:)
+		@path = '/requests'
 		@sender_name = sender_name
 		@sender_contact = format_contact_number(sender_contact)
 		@recipient_contact = format_contact_number(recipient_contact)

@@ -9,6 +9,7 @@ Dotenv.load
 
 Orange.configure do |config|
 	config.authorization_token = ENV['ORANGE_AUTHORIZATION_TOKEN']
+	config.merchant_key = ENV['ORANGE_MONEY_MERCHANT_KEY']
 end
 
 # You can add fixtures and/or initialization code here to make experimenting

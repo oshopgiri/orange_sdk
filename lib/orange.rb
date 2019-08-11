@@ -24,4 +24,5 @@ module Orange
 end
 
 require 'orange/auth'
+require 'orange/money'
 require 'orange/sms'
