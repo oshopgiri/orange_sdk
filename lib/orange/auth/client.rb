@@ -8,9 +8,17 @@ class Orange::Auth::Client
 	end
 
 	def get_token
-		response = self.class.post(@path, headers: headers, body: {
-			grant_type: 'client_credentials'
-		})
+		response = self.class.post(
+			@path,
+			headers: {
+				Authorization: "Basic #{Orange.configuration.authorization_token}",
+				'Content-Type': 'application/x-www-form-urlencoded',
+				Accept: 'application/json'
+			},
+			body: {
+				grant_type: 'client_credentials'
+			}
+		)
 
 		if response.success?
 			Orange::Auth::Token.new(response: response)
@@ -18,14 +26,4 @@ class Orange::Auth::Client
 			raise Orange::Auth::Error.new(response: response)
 		end
 	end
-
-	private
-
-		def headers
-			{
-				Authorization: "Basic #{Orange.configuration.authorization_token}",
-				'Content-Type': 'application/x-www-form-urlencoded',
-				Accept: 'application/json'
-			}
-		end
 end

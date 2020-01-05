@@ -7,8 +7,4 @@ class Orange::Auth::Error < Orange::Error
 
 		super(message)
 	end
-
-	def message
-		"#{@type}: #{@description}"
-	end
 end

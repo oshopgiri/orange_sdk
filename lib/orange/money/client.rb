@@ -16,17 +16,25 @@ class Orange::Money::Client
 	end
 
 	def initialize_transaction
-		response = self.class.post(@path, headers: headers, body: {
-			merchant_key: Orange.configuration.merchant_key,
-			order_id: @order_id,
-			amount: @amount,
-			currency: @currency,
-			return_url: @return_url,
-			cancel_url: @cancel_url,
-			notif_url: @notify_url,
-			lang: @lang,
-			reference: @merchant_name
-		}.to_json)
+		response = self.class.post(
+			@path,
+			headers: {
+				Authorization: "Bearer #{Orange::Auth.get_token.access_token}",
+				'Content-Type': 'application/json',
+				Accept: 'application/json'
+			},
+			body: {
+				merchant_key: Orange.configuration.merchant_key,
+				order_id: @order_id,
+				amount: @amount,
+				currency: @currency,
+				return_url: @return_url,
+				cancel_url: @cancel_url,
+				notif_url: @notify_url,
+				lang: @lang,
+				reference: @merchant_name
+			}.to_json
+		)
 
 		if response.success?
 			Orange::Money::TransactionDetail.new(response: response)
@@ -34,14 +42,4 @@ class Orange::Money::Client
 			raise Orange::Money::Error.new(response: response)
 		end
 	end
-
-	private
-
-		def headers
-			{
-				Authorization: "Bearer #{Orange::Auth.get_token.access_token}",
-				'Content-Type': 'application/json',
-				Accept: 'application/json'
-			}
-		end
 end

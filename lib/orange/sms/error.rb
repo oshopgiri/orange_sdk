@@ -11,8 +11,4 @@ class Orange::SMS::Error < Orange::Error
 
 		super(message)
 	end
-
-	def message
-		"#{@type}: #{@description}"
-	end
 end

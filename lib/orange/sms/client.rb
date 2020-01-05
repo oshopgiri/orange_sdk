@@ -12,16 +12,24 @@ class Orange::SMS::Client
 	end
 
 	def dispatch
-		response = self.class.post("/tel:#{@sender_contact}#{@path}", headers: headers, body: {
-			outboundSMSMessageRequest: {
-				address: "tel:#{@recipient_contact}",
-				outboundSMSTextMessage: {
-					message: @message
-				},
-				senderAddress: "tel:#{@sender_contact}",
-				senderName: @sender_name || @sender_contact
-			}
-		}.to_json)
+		response = self.class.post(
+			"/tel:#{@sender_contact}#{@path}",
+			headers: {
+				Authorization: "Bearer #{Orange::Auth.get_token.access_token}",
+				'Content-Type': 'application/json',
+				Accept: 'application/json'
+			},
+			body: {
+				outboundSMSMessageRequest: {
+					address: "tel:#{@recipient_contact}",
+					outboundSMSTextMessage: {
+						message: @message
+					},
+					senderAddress: "tel:#{@sender_contact}",
+					senderName: @sender_name || @sender_contact
+				}
+			}.to_json
+		)
 
 		if response.success?
 			response.success?
@@ -31,14 +39,6 @@ class Orange::SMS::Client
 	end
 
 	private
-
-		def headers
-			{
-				Authorization: "Bearer #{Orange::Auth.get_token.access_token}",
-				'Content-Type': 'application/json',
-				Accept: 'application/json'
-			}
-		end
 
 		def format_contact_number contact_number
 			contact_number.gsub!(' ', '')

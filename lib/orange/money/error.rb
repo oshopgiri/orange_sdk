@@ -7,8 +7,4 @@ class Orange::Money::Error < Orange::Error
 
 		super(message)
 	end
-
-	def message
-		"#{@message}: #{@description}"
-	end
 end
