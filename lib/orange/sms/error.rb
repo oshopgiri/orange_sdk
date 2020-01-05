@@ -5,13 +5,10 @@ class Orange::SMS::Error < Orange::Error
 			              else
 				              response.parsed_response['requestError']['policyException']
 		                  end
+
 		@type = parsed_response['messageId']
 		@description = parsed_response['text'].split('.').first
 
 		super(message)
-	end
-
-	def message
-		"#{@type}: #{@description}"
 	end
 end
