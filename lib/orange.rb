@@ -15,10 +15,9 @@ module Orange
 	end
 
 	class Configuration
-		attr_accessor :authorization_token
+		attr_accessor :authorization_token, :merchant_key
 
 		def initialize
-			@authorization_token = ''
 		end
 	end
 end

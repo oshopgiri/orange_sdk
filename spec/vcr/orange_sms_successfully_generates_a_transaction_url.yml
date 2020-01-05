@@ -1,0 +1,82 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.orange.com/oauth/v2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials
+    headers:
+      Authorization:
+      - Basic d32831c60f88c759a377a080754e3841477fb5b2e22d709f609dd4baaa9203cb2f6d
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 05 Jan 2020 19:12:18 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '163'
+      Connection:
+      - keep-alive
+      X-Oapi-Request-Id:
+      - opapccballrt02-25644-1577596-1
+    body:
+      encoding: UTF-8
+      string: "\n          {\n            \"token_type\": \"Bearer\",\n          \t\"access_token\":
+        \"P9xJdDaUVZ9qsiPAD1fhJdvgAKiM\",\n          \t\"expires_in\": \"7776000\"\n
+        \         }\n        "
+    http_version: 
+  recorded_at: Sun, 05 Jan 2020 19:12:18 GMT
+- request:
+    method: post
+    uri: https://api.orange.com/orange-money-webpay/dev/v1/webpayment
+    body:
+      encoding: UTF-8
+      string: '{"merchant_key":"477fb5b2","order_id":"1","amount":2000.0,"currency":"OUV","return_url":"https://e-commerce-staging.herokuapp.com/orders/1?payment_success=success","cancel_url":"https://e-commerce-staging.herokuapp.com/orders/1?payment_success=cancel","notif_url":"https://e-commerce-staging.herokuapp.com/orders/1","lang":"en","reference":"Top
+        Class"}'
+    headers:
+      Authorization:
+      - Bearer P9xJdDaUVZ9qsiPAD1fhJdvgAKiM
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 05 Jan 2020 19:12:19 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '301'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - AlteonP=ADGbA3s7agq/eAZ8dvsNXg$$; Path=/
+      Access-Control-Allow-Origin:
+      - ''
+      Access-Control-Expose-Headers:
+      - X-Result-Count, X-Total-Count
+      X-Oapi-Request-Id:
+      - opapccballrt01-2433-1580399-1
+    body:
+      encoding: UTF-8
+      string: '{"status":201,"message":"OK","pay_token":"v17fpjel7fhkyjzjkg1g872fosa0az9kugdnnm3nw8dgyko4vpuxqe87lcad9xib","payment_url":"https://webpayment-ow-sb.orange-money.com/sx/mpayment/abstract/v17fpjel7fhkyjzjkg1g872fosa0az9kugdnnm3nw8dgyko4vpuxqe87lcad9xib","notif_token":"l64h7c2npbi7dmk2x9vk7fhf1p31ivui"}'
+    http_version: 
+  recorded_at: Sun, 05 Jan 2020 19:12:19 GMT
+recorded_with: VCR 5.0.0
