@@ -13,5 +13,5 @@ jobs:
               run: |
                   gem install bundler
                   bundler install
-            - name: Run tests
-              run: bundler exec rspec
+            - name: RSpec Action
+              uses: oshopgiri/rspec_action@v1.0
